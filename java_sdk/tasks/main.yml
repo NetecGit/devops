@@ -1,0 +1,42 @@
+---
+# tasks file for java_sdk
+- name: Instalar Java SDK 
+  apt:
+   name: "{{ java_version }}"
+   state: present
+   update_cache: yes
+
+- name: Establecer JAVA_HOME y Actualizar PAH
+  blockinfile:
+    path: /etc/profile.d/java.sh
+    create: yes
+    block: |
+      export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java ))))
+      export PATH=$JAVA_HOME/bin:$PATH
+  become: true
+
+- name: Verificar la version de Java
+  command: java -version
+  register: resultado
+
+- debug:
+     var: resultado.stderr_lines
+
+- name: Copiar el programa Java Hola Mundo
+  copy:
+     src: HelloWorld.java
+     dest: /tmp/HelloWorld.java
+
+- name: Compilar el programa Java Hola Mundo
+  command: javac /tmp/HelloWorld.java
+  args:
+    chdir: /tmp 
+
+- name: Ejecutar el programa Java Hola Mundo
+  command: java -cp /tmp HelloWorld
+  args:
+     chdir: /tmp
+  register: java_output
+
+- debug:
+    var: java_output.stdout
