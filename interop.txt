@@ -1,0 +1,15 @@
+2 definitions found
+
+From The Collaborative International Dictionary of English v.0.48 [gcide]:
+
+  interoperability \in`ter*op`er*a*bil"i*ty\, n. (Computers)
+     The quality of being {interoperable}. Used of data structures
+     or executable programs.
+     [PJC]
+
+From WordNet (r) 3.0 (2006) [wn]:
+
+  interoperability
+      n 1: (computer science) the ability to exchange and use
+           information (usually in a large heterogeneous network made
+           up of several local area networks)

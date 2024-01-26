@@ -1,0 +1,5 @@
+- name: Parar Apache Ubuntu
+  become: true
+  ansible.builtin.service:
+     name: apache2
+     state: stopped
