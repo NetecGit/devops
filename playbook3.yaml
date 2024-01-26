@@ -1,7 +1,7 @@
 ---
 - name: Demo play material
-  hosts: ubuntu
-  remote_user: ubuntu1
+  hosts: managednode
+  remote_user: netec
 
   tasks:
   - name: Simple ping
@@ -12,7 +12,7 @@
 
 - name: Instalar Nginx quitando Apache primero
   hosts: ubuntu
-  remote_user: ubuntu1
+  remote_user: netec
 
   tasks:
   - name: Parar Apache

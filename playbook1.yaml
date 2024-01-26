@@ -1,7 +1,7 @@
 ---
 - name: Demo play material
   hosts: all
-  remote_user: ubuntu1
+  remote_user: netec
 
   tasks:
   - name: Simple ping
