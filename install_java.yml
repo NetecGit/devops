@@ -1,0 +1,6 @@
+---
+- hosts: all
+  remote_user: netec
+  become: yes
+  roles:
+    - ./java_sdk
