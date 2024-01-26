@@ -1,0 +1,8 @@
+---
+- name: Demo play material
+  hosts: all
+  remote_user: ubuntu1
+
+  tasks:
+  - name: Simple ping
+    ansible.builtin.ping:

@@ -1,0 +1,4 @@
+---
+# defaults file for java_sdk
+# Versión por defecto de Java a instalar
+java_version: "openjdk-11-jdk"

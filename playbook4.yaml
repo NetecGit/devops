@@ -1,0 +1,44 @@
+---
+- name: Demo play material
+  hosts: ubuntu
+  remote_user: ubuntu1
+
+  tasks:
+  - name: Simple ping
+    ansible.builtin.ping:
+  - name: Creando un archivo
+    ansible.builtin.shell:
+      touch /tmp/archivoDemo.txt
+
+- name: Instalar Nginx quitando Apache primero
+  hosts: ubuntu
+  remote_user: ubuntu1
+
+  tasks:
+  - name: Parar Apache
+    become: yes
+    ansible.builtin.service:
+      name: apache2
+      state: stopped 
+  - name: Instalar Nginx con apt
+    become: yes
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+      update_cache: true
+  - name: Arrancar Nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+  - name: copiando index.html
+    become: yes
+    ansible.builtin.copy:
+       src: ./index.html
+       dest: /var/www/html
+       owner: root
+       group: root
+       mode: '0644'
+       backup: yes
+
+
+
